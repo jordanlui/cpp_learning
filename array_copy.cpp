@@ -47,6 +47,18 @@ int count_x(char* p, char x)
 	return count;
 }
 
+int count_x2(char* p, char x)
+{
+	// count occurence of x in p[]
+	int count = 0;
+	while (p) {
+		if(*p==x)
+			++count;
+		++p;
+	}
+	return count;
+}
+
 int main()
 {
 	cout << "Hello. This script will test some loop activity. \n";
@@ -58,4 +70,5 @@ int main()
 	char x[] = "a";
 	// int count = count_x(p*,x);
 	// cout << count;
+	// cout << count_x2(p,x);
 }
