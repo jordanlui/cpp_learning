@@ -10,6 +10,21 @@ void greg_julian(int y, int m, int d)
 	cout << newyear;
 }
 
+void greg_input()
+{
+	// Asks user for the greg-to-julian conversion parameters
+	int y, m, d;
+	// Accept user inputs
+    cout << "Enter a Gregorian date, receive Julian Date \n";
+    cout << "Enter year: ";
+    cin >> y;
+    cout << "Enter Month: ";
+    cin >> m;
+    cout << "Enter Day: ";
+    cin >> d;
+    greg_julian(y,m,d);
+}
+
 void julian_greg(int j)
 {
 	// converts julian date to gregorian
@@ -17,11 +32,32 @@ void julian_greg(int j)
 	cout << j;
 }
 
-main()
+int main()
 {
     std::cout << "Calendar Conversion! \n";
-    int y = 2017;
-    int m = 6;
-    int d = 17;
-    greg_julian(y,m,d);
+    bool running = true;
+    while (running==true) {
+		// Take input for gregorian conversion
+		greg_input();
+
+
+		// Switch case to determine if we continue or not
+	    cout << "Continue? \n";
+	    char answer = 0;
+	    cin >> answer;
+	    switch (answer) {
+	    	case 'y':
+	    		// If 'y', we continue
+	    		cout << "Another round \n";
+	    		// return true;
+	    		break;
+	    	case 'n':
+	    		cout << "Halting \n";
+	    		return false;
+	    		break;
+    		default:
+    			cout << "Assume we'll continue \n";
+    			break;
+		    }
+		}
 }

@@ -66,9 +66,16 @@ int main()
 	print();
 	increment();
 	// Quite unclear how the reference count_x function works. I'm not quite understanding concept of references
-	char p[] = "abcabc";
+	
+
+	// Basic counting with pointers. Not working yet
+	char string[] = "abcabc";
+	// char *p = &string;
 	char x[] = "a";
 	// int count = count_x(p*,x);
 	// cout << count;
+
+	// Character counting with pointers.
+	// not working yet
 	// cout << count_x2(p,x);
 }
