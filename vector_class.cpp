@@ -15,9 +15,26 @@ private:
 	int sz; // number of elements
 };
 
+enum class Color {red, blue, green};
+enum class Traffic_light{green, yellow, red};
+
+// enum functions
+Traffic_light& operator++(Traffic_light& t)
+// prefix increment code
+{
+	switch (t){
+		case Traffic_light::green: return t=Traffic_light::yellow;
+		case Traffic_light::yellow: return t=Traffic_light::red;
+		case Traffic_light::red: return t=Traffic_light::green;
+	}
+}
+
+
+
 // Functions
 double read_and_sum(int s)
 {
+	cout << "This function will add several integers. Input now: ";
 	Vector v(s);
 	for (int i=0; i!=v.size(); ++i)
 		cin >> v[i];
@@ -29,6 +46,21 @@ double read_and_sum(int s)
 
 int main()
 {
+	
+
+	
+
+	cout << "Testing a enumerated class \n";
+	// Use these to make more readable code than using symbolic and integer flags
+	Color col = Color::red;
+	Traffic_light light = Traffic_light::red;
+	cout << "Our first light is " << int(light) << "\n";
+	// Now switch the light
+	Traffic_light next=++light;
+	// cout << "Colour is " << col << "And traffic light is " << light;
+	cout <<	"Now the light is " << int(light) << "\n";
+
+
 	cout << "Creating Vector class and testing \n";
 	Vector(6);
 	double sum = read_and_sum(3);
